@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const generateMarkdown = require('./utils/generateMarkdown.js');
+
+//questions and user response
 inquirer
   .prompt([
     {
@@ -12,12 +15,6 @@ inquirer
       type: 'input',
       message: 'Please provide a short description explaining the what, why, and how of your project.',
       name: 'description',
-    },
-    {
-      type: 'checkbox',
-      message: 'Please select which sections you would like in your table of contents.',
-      name: 'contents',
-      choices: ['Installation', 'Usage', 'License', 'Contributors', 'Tests', 'Questions']
     },
     {
       type: 'input',
@@ -62,20 +59,33 @@ inquirer
       },
       
   ])
+
+
   .then((response) => {
-    const content = JSON.stringify(response);
+    const content = generateMarkdown(response);
+  
     fs.writeFile('README.md', content, (err) => {
-    if (err) throw err;
-    console.log("ReadMe.md has been created successfully!")
+        if (err) throw err;
+        console.log("ReadMe.md has been created successfully!")
     });
   });
 
 
-// // TODO: Create a function to initialize app
-// function init() {}
 
-// // Function call to initialize app
-// init();
+
+
+
+// TODO: Create a function to write README file
+// function writeToFile(fileName, data) {}
+
+// TODO: Create a function to initialize app
+function init() {}
+
+// Function call to initialize app
+init();
+
+
+
 
 
 
