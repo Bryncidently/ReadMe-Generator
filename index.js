@@ -26,7 +26,7 @@ inquirer
     },
     {
         type: 'input',
-        message: 'Provide instructions and examples for use. Include screenshots as needed.', 
+        message: 'Provide instructions and examples for use.', 
         name: 'usage',
       },
       {
@@ -37,7 +37,7 @@ inquirer
       },
       {
         type: 'input',
-        message: 'What us your email address?',
+        message: 'What is your email address?',
         name: 'email',
       },
       {
