@@ -33,7 +33,7 @@ inquirer
         type: 'list',
         message: 'What license did you use?',
         name: 'license',
-        choices: ['MIT_License','GNU_General_Public_License_v3.0', 'Mozilla_Public_License_2.0', 'Eclipse_Public_License_2.0' ]
+        choices: ['MIT_License','GNU_General_Public_License_v3.0', 'Mozilla_Public_License_2.0', 'Eclipse_Public_License_2.0' ] // _ between words to make the badge link work
       },
       {
         type: 'input',
@@ -66,7 +66,7 @@ inquirer
 
   .then((response) => {
     const content = generateMarkdown(response);
-  
+    //response.title instead of readme.md because it was caching for some reason?
     fs.writeFile(`${response.title}.md`, content, (err) => {
         if (err) throw err;
         console.log("ReadMe.md has been created successfully!")
